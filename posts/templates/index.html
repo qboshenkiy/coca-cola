@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=4, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <nav>
+          <img src="{% static 'image/cola-logo.png' %}" alt="" width="250" />
+          <ul class="nav-ul">
+            <li class="nav-li"><a href="#cola" class="nav-a">Виды</a></li>
+            <li class="nav-li"><a href="#cola" class="nav-a">Новости</a></li>
+          </ul>
+        </nav>
+        <img
+          src="{% static 'image/logo.png' %}"
+          alt=""
+          width="178"
+          class="logo-img"
+        />
+      </div>
+    </header>
+    <main>
+      <div class="wrapper">
+        <div class="wrapper">
+          <img
+            src="{% static 'image/header.png' %}"
+            alt=""
+            width="1280"
+            class="hd-img"
+          />
+        </div>
+        <h1 class="title">Продукция</h1>
+        <div class="cards" id="cola">
+          {% for views in view %}
+          <div class="card">
+            <img
+              src="{{ views.image.url }}"
+              alt=""
+              class="card-img"
+              width="544"
+            />
+            <div class="card-box">
+              <h1 class="name">{{views.name}}</h1>
+              <p class="info">{{views.info}}</p>
+            </div>
+          </div>
+          {% endfor %}
+          {% for views2 in view2 %}
+          <div class="card">
+            <div class="card-box">
+              <h1 class="name">{{views2.name}}</h1>
+              <p class="info">{{views2.info}}</p>
+            </div>
+            <img
+              src="{{ views2.image.url }}"
+              alt=""
+              class="card-img"
+              width="544"
+            />
+          </div>
+          {% endfor %}
+        </div>
+        {% for news in new %}
+        <div id="news">
+          <h1 class="title">{{ news.title }}</h1>
+          <p class="text-news">{{ news.text }}</p>
+        </div>
+        {% endfor %}
+        <div class="sub">
+          <h1 class="sub-title">Подписаться на Coca‑Cola Belarus</h1>
+          <img src="" alt="" class="sub-img" />
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="wrapper">
+        <div class="top-footer">
+          <img
+            src="{% static 'image/cola-logo.png' %}"
+            alt=""
+            width="250"
+            class="footer-img"
+          />
+          <button>Belarus</button>
+        </div>
+        <div class="nav-footer">
+          <div class="ul">
+            <p class="title-ul">О нас</p>
+            <p class="text-ul">Наша компания</p>
+            <p class="text-ul">История</p>
+            <p class="text-ul">Вакансии</p>
+          </div>
+          <div class="ul">
+            <p class="title-ul">нужан помощь?</p>
+            <p class="text-ul">Карта веб-сайта</p>
+            <p class="text-ul">Связатся с нами</p>
+          </div>
+          <div class="ul">
+            <p class="title-ul">ДОПОЛНИТЕЛЬНОЕ ЮРИДИЧЕСКОЕ ОБОСНОВАНИЕ</p>
+            <p class="text-ul">Условия использования</p>
+            <p class="text-ul">Политика конфиденциаль- ности</p>
+            <p class="text-ul">Установки cookie-файлов</p>
+            <p class="text-ul">Политика "cookie"</p>
+          </div>
+        </div>
+        <p class="author">© 2024 The Coca‑Cola Company. Все права защищены.</p>
+      </div>
+    </footer>
+  </body>
+</html>
